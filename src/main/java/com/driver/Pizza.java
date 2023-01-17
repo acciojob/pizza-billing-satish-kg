@@ -109,11 +109,11 @@ public class Pizza {
     public String getBill(){
         // your code goes here
         if(paperBagOrderedFirst == false){
-            bill+="Total Cost: "+cost+"\n";
+            bill+="Total Price: "+cost+"\n";
             return this.bill;
         }else{
             bill+="Paperbag Added: 20\n";
-            bill+="Total Cost: "+cost+"\n";
+            bill+="Total Price: "+cost+"\n";
             return this.bill;
         }
     }
