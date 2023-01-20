@@ -31,6 +31,7 @@ public class Pizza {
         return extraToppingsFlag;
     }
 
+    private boolean isDeluxe = false;
     private boolean extraCheeseFlag = false;
     private boolean extraToppingsFlag = false;
     private boolean paperBagOrderedFirst = false;
@@ -59,31 +60,36 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        if(extraCheeseFlag == false){
-            extraCheeseFlag = true;
-            cost += 80;
-            if(extraToppingsFlag){
-                bill+="Extra Cheese Added: 80\n";
-                if(isVeg) bill+="Extra Toppings Added: 70\n";
-                else bill+="Extra Toppings Added: 120\n";
-            }
-            else{
-                bill+="Extra Cheese Added: 80\n";
+        if(!isDeluxe()){
+            if(extraCheeseFlag == false){
+                extraCheeseFlag = true;
+                cost += 80;
+                if(extraToppingsFlag){
+                    bill+="Extra Cheese Added: 80\n";
+                    if(isVeg) bill+="Extra Toppings Added: 70\n";
+                    else bill+="Extra Toppings Added: 120\n";
+                }
+                else{
+                    bill+="Extra Cheese Added: 80\n";
+                }
             }
         }
+
     }
 
     public void addExtraToppings(){
         // your code goes here
-        if(extraToppingsFlag == false){
-            extraToppingsFlag = true;
-            if(extraCheeseFlag){
-                if(isVeg == true){
-                    cost += 70;
-                    bill+="Extra Toppings Added: 70\n";
-                }else{
-                    cost += 120;
-                    bill+="Extra Toppings Added: 120\n";
+        if(!isDeluxe()){
+            if(extraToppingsFlag == false){
+                extraToppingsFlag = true;
+                if(extraCheeseFlag){
+                    if(isVeg == true){
+                        cost += 70;
+                        bill+="Extra Toppings Added: 70\n";
+                    }else{
+                        cost += 120;
+                        bill+="Extra Toppings Added: 120\n";
+                    }
                 }
             }
         }
@@ -116,5 +122,13 @@ public class Pizza {
             bill+="Total Price: "+cost+"\n";
             return this.bill;
         }
+    }
+
+    public boolean isDeluxe() {
+        return isDeluxe;
+    }
+
+    public void setDeluxe(boolean deluxe) {
+        isDeluxe = deluxe;
     }
 }
