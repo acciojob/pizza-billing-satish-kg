@@ -14,10 +14,10 @@ public class DeluxePizza extends Pizza {
 //        }
 //        this.setDeluxe(true);
         addExtraCheese();
-        setPrice(getPrice()+80);
+//        setPrice(getPrice()+80);
         addExtraToppings();
-        if(isVeg) setPrice(getPrice()+70);
-        else setPrice(getPrice()+120);
+//        if(isVeg) setPrice(getPrice()+70);
+//        else setPrice(getPrice()+120);
 
     }
 }
